@@ -2,17 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Freezingbullet : MonoBehaviour
+public abstract class Freezingbullet : Bullet
 {
-    // Start is called before the first frame update
-    void Start()
+    public Freezingbullet()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public Freezingbullet( Sprite Freezingbullet , Rigidbody2D rb ) : base (35 , Resources.Load<Sprite>("./ResourcesFreezingbullet"))
     {
-        
+        this.speed = 35;
+
+
+    }
+
+    public override void Move()
+    {
+        rb.velocity = new Vector2(Mathf.Sin(Time,time)* speed,speed);
     }
 }
